@@ -1,4 +1,58 @@
+import 'package:consumo_de_api/screens/01_Home.dart';
+import 'package:consumo_de_api/screens/02_inicioSesionUsuario.dart';
+import 'package:consumo_de_api/screens/04_perfilUsuario.dart';
+import 'package:consumo_de_api/screens/06_MenuUser.dart';
+import 'package:consumo_de_api/screens/2_1.dart';
 import 'package:flutter/material.dart';
+
+
+class API extends StatelessWidget {
+  const API({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "API APP",
+      home: HomePage(),
+      // home: PaginaRegistro(),
+      routes: {
+        '/home': (context) => HomePage(),
+        '/login': (context) => Login(),
+        '/registro': (context) => PaginaRegistro(),
+        '/perfil':(context) => Perfilusuario(),
+        '/users':(context)=> MenuUsers()
+      },
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import 'package:flutter/material.dart';
 
 class MenuUsers extends StatefulWidget {
   const MenuUsers({super.key});
@@ -42,4 +96,4 @@ class _MenuUsersState extends State<MenuUsers> {
         )
     );
   }
-}
+} */
