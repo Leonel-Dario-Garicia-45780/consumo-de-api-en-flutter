@@ -1,7 +1,9 @@
-import 'package:consumo_de_api/controlador/consultarUsuarios.dart';
+// import 'package:consumo_de_api/controlador/consultarUsuarios.dart';
+import 'package:consumo_de_api/services/user_service.dart';
 import 'package:flutter/material.dart';
 
 ModalEventos(BuildContext context) {
+/*   final consultaUsuarios = consultarUsuarios(); */
   final consultaUsuarios = consultarUsuarios();
   print(consultaUsuarios);
 
@@ -17,7 +19,7 @@ ModalEventos(BuildContext context) {
               )
             ],
             backgroundColor: Colors.red[100],
-            title: Text("Usuarios"),
+            title: Text("Informes"),
           ),
           body: Center(
             child: Text("Hola"),

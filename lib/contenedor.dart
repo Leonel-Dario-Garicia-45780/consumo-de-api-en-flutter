@@ -1,8 +1,10 @@
 import 'package:consumo_de_api/screens/01_Home.dart';
-import 'package:consumo_de_api/screens/02_inicioSesionUsuario.dart';
+import 'package:consumo_de_api/screens/formularios/02_inicioSesionUsuario.dart';
 import 'package:consumo_de_api/screens/04_perfilUsuario.dart';
 import 'package:consumo_de_api/screens/06_MenuUser.dart';
-import 'package:consumo_de_api/screens/2_1.dart';
+// import 'package:consumo_de_api/screens/formularios/2_1.dart';
+import 'package:consumo_de_api/screens/formularios/03_registroUsuario.dart';
+import 'package:consumo_de_api/screens/productosPage.dart';
 import 'package:flutter/material.dart';
 
 
@@ -15,13 +17,14 @@ class API extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "API APP",
       home: HomePage(),
-      // home: PaginaRegistro(),
+      // home: ProductosPage(),
       routes: {
         '/home': (context) => HomePage(),
         '/login': (context) => Login(),
         '/registro': (context) => PaginaRegistro(),
         '/perfil':(context) => Perfilusuario(),
-        '/users':(context)=> MenuUsers()
+        '/users':(context)=> MenuUsers(),
+        '/productos': (context) => ProductosPage(),
       },
     );
   }

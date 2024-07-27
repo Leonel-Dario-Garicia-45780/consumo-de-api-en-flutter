@@ -1,4 +1,5 @@
-import 'package:consumo_de_api/screens/01_ModalUsers.dart';
+import 'package:consumo_de_api/screens/modales/01_Modalinformes.dart';
+import 'package:consumo_de_api/screens/modales/ModalConsultarUsuarios.dart';
 import 'package:flutter/material.dart';
 
 class MenuUsers extends StatefulWidget {
@@ -37,7 +38,9 @@ class _MenuUsersState extends State<MenuUsers> {
             title: Text("Usuarios"),
             leading: Icon(Icons.connect_without_contact_rounded),
             trailing: Icon(Icons.arrow_circle_right_outlined),
-            onTap: () {},
+            onTap: () {
+              ModalConsultarUsuarios(context);
+            },
           ),
           ListTile(
             title: Text("Solicitudes"),

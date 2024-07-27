@@ -1,11 +1,72 @@
+// import 'package:flutter/material.dart';
+// import '../services/user_service.dart';
+// import '../models/user.dart';
+
+// class HomePage extends StatefulWidget {
+//   @override
+//   _HomePageState createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   late Future<List<User>> _users;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _users = consultarUsuarios();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Lista de Usuarios'),
+//       ),
+//       body: FutureBuilder<List<User>>(
+//         future: _users,
+//         builder: (context, snapshot) {
+//           if (snapshot.connectionState == ConnectionState.waiting) {
+//             return Center(child: CircularProgressIndicator());
+//           } else if (snapshot.hasError) {
+//             return Center(child: Text('Error: ${snapshot.error}'));
+//           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+//             return Center(child: Text('No hay usuarios disponibles.'));
+//           } else {
+//             final users = snapshot.data!;
+//             return ListView.builder(
+//               itemCount: users.length,
+//               itemBuilder: (context, index) {
+//                 final user = users[index];
+//                 return ListTile( //los datos que se miuestran del ususario
+//                   // subtitle: Text(user.cedula),
+//                   title: Text(user.nombre),
+//                   // subtitle: Text(user.telefono),
+//                   // subtitle: Text(user.direccion),
+//                   // subtitle: Text(user.email),
+//                   subtitle: Text(user.contrasena),
+                  
+//                 );
+//               },
+//             );
+//           }
+//         },
+//       ),
+//     );
+//   }
+// }
+
+
+
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {  
     return Scaffold(
+      //! barra de navegacion
       appBar: AppBar(
         backgroundColor: Colors.lightBlue[400],
         foregroundColor: Colors.white,
@@ -45,6 +106,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+      //!  cuerpo ====================================
       body: Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(
@@ -70,6 +132,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 12),
+
             Expanded(
               child: GridView.builder(
                 padding: EdgeInsets.all(10),
@@ -104,6 +167,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         items: [
@@ -140,3 +204,4 @@ final List<Map<String, dynamic>> categories = [
   {'codigo': '010', 'icono': Icons.fastfood, 'titulo': 'Alimentos y bebidas'},
   {'codigo': '011', 'icono': Icons.pets, 'titulo': 'Animales y mascotas'},
 ];
+
