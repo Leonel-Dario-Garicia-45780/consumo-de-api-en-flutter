@@ -1,11 +1,12 @@
+//! sin demostrar
 
 import 'dart:convert';
-import 'package:consumo_de_api/models/user.dart';
 import 'package:http/http.dart' as http;
+import '../models/user.dart';
 
-Future<User> createUsuarios(int cedula, String nombre, int telefono, String direccion, String email, String contrasena) async {
-  final response = await http.post(
-    Uri.parse('https://entrega-nodejs.onrender.com/api/usuarios'),
+Future<User> actualizarUsuario(int id, int cedula, String nombre, int telefono, String direccion, String email, String contrasena) async {
+  final response = await http.put(
+    Uri.parse('https://entrega-nodejs.onrender.com/api/usuarios/$id'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -19,9 +20,9 @@ Future<User> createUsuarios(int cedula, String nombre, int telefono, String dire
     }),
   );
 
-  if (response.statusCode == 201) {
+  if (response.statusCode == 200) {
     return User.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('Error al crear el usuario: ${response.statusCode}');
+    throw Exception('Error al actualizar el usuario: ${response.statusCode}');
   }
 }

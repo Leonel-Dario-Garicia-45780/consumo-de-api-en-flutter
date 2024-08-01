@@ -4,8 +4,8 @@ import '../models/user.dart';
 
 Future<List<User>> consultarUsuarios() async {
   final response = await http
-      // .get(Uri.parse('https://entrega-nodejs.onrender.com/api/usuarios'));
-      .get(Uri.parse('https:10.185.81.117/api/usuarios'));
+     .get(Uri.parse('https://entrega-nodejs.onrender.com/api/usuarios'));
+      // .get(Uri.parse('https:10.185.81.117/api/usuarios'));
 
   if (response.statusCode == 200) {
     List<dynamic> jsonData = jsonDecode(response.body);
@@ -15,32 +15,4 @@ Future<List<User>> consultarUsuarios() async {
   }
 }
 
-// Future<User> createUsuarios(
-//   int cedula,
-//   String nombre,
-//   int telefono,
-//   String direccion,
-//   String email,
-//   String contrasena,
-// ) async {
-//   final response = await http.post(
-//     Uri.parse('https://entrega-nodejs.onrender.com/api/usuarios'),
-//     headers: <String, String>{
-//       'Content-Type': 'application/json; charset=UTF-8',
-//     },
-//     body: jsonEncode(<String, String>{
-//       "cedula": cedula,
-//       "nombre": nombre,
-//       "telefono": telefono,
-//       "email": email,
-//       "direccion": direccion,
-//       "contrasena": contrasena,
-//     }),
-//   );
 
-//   if (response.statusCode == 201) {
-//     return User.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
-//   } else {
-//     throw Exception('No se pudo registrar');
-//   }
-// }
