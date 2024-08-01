@@ -158,10 +158,10 @@ class _PaginaRegistroState extends State<PaginaRegistro> {
                   SizedBox(
                     width: double.infinity,
                     height: 45,
-                    //! boton de registrar  
+                    //! boton de registrar
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {  
+                        if (_formKey.currentState!.validate()) {
                           setState(() {
                             _futureUsuarios = createUsuarios(
                               int.parse(_cedulaControlador.text),
@@ -172,10 +172,16 @@ class _PaginaRegistroState extends State<PaginaRegistro> {
                               _constrasenaControlador.text,
                             );
                           });
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Registro exitoso')),
-                          );
-                          Navigator.pushNamed(context, '/home');
+                          _futureUsuarios!.then((user) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Registro exitoso')),
+                            );
+                            Navigator.pushNamed(context, '/home');
+                          }).catchError((error) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Error al registrar: $error')),
+                            );
+                          });
                         }
                       },
                       child: Text("Registrarse"),
@@ -208,8 +214,6 @@ class _PaginaRegistroState extends State<PaginaRegistro> {
     );
   }
 }
-
-
 
 // import 'package:consumo_de_api/models/user.dart';
 // import 'package:consumo_de_api/services/crear_usuario.dart';
@@ -374,7 +378,6 @@ class _PaginaRegistroState extends State<PaginaRegistro> {
 //                 ),
 //                 SizedBox(height: 20),
 
-
 // /*
 //                 TextFormField(
 //                   decoration: InputDecoration(
@@ -411,10 +414,10 @@ class _PaginaRegistroState extends State<PaginaRegistro> {
 //                 SizedBox(
 //                   width: double.infinity,
 //                   height: 45,
-//                   //! boton de registrar  
+//                   //! boton de registrar
 //                   child: ElevatedButton(
 //                     onPressed: () {
-//                       if (_formKey.currentState!.validate()) {  
+//                       if (_formKey.currentState!.validate()) {
 //                         setState(() {
 //                           _futureUsuarios = createUsuarios(
 //                             int.parse(_cedulaControlador.text),
